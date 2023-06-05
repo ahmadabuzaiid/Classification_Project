@@ -155,5 +155,3 @@ def DE_fn():
     df = scal_fn(df, scal_feat)
 
     df.to_csv('2018_Accidents_UK_Final.csv', index=False)
-
-DE_fn()
