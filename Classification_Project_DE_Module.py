@@ -5,6 +5,7 @@ from category_encoders import BinaryEncoder
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.neighbors import LocalOutlierFactor
+from sklearn.preprocessing import StandardScaler
 
 def cca_imp_fn(df, feat):
     df.dropna(subset=feat,inplace=True)
@@ -69,6 +70,11 @@ def label_encoder_fn(df, label_feat):
 def scal_fn(df, scal_feat):
     for feat in scal_feat:
         df[feat] = MinMaxScaler().fit_transform(df[[feat]]) 
+    return df
+
+def standardize_fn(df, stand_feat):
+    for feat in stand_feat:
+        df[feat] = StandardScaler().fit_transform(df[[feat]])
     return df
 
 def weekEnd_fn(day):
@@ -151,9 +157,7 @@ def DE_fn():
     df = one_hot_encoder(df, hot_feat)
     df = df.loc[:, ~df.columns.duplicated()]
 
-    scal_feat = ['number_of_vehicles', 'number_of_casualties','longitude','latitude']
-    df = scal_fn(df, scal_feat)
+    stand_feat = ['number_of_vehicles', 'number_of_casualties','time_in_mins']
+    df = standardize_fn(df, stand_feat)
 
     df.to_csv('2018_Accidents_UK_Final.csv', index=False)
-
-DE_fn()
