@@ -160,8 +160,4 @@ def DE_fn():
     stand_feat = ['number_of_vehicles', 'number_of_casualties','time_in_mins']
     df = standardize_fn(df, stand_feat)
 
-<<<<<<< HEAD
     df.to_csv('2018_Accidents_UK_Final.csv', index=False)
-=======
-    df.to_csv('2018_Accidents_UK_Final.csv', index=False)
->>>>>>> 6085f769826a5d80c3521bf67ec18d7d2484fb53
