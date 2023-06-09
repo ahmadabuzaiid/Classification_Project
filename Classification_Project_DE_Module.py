@@ -161,5 +161,3 @@ def DE_fn():
     df = standardize_fn(df, stand_feat)
 
     df.to_csv('2018_Accidents_UK_Final.csv', index=False)
-
-DE_fn()
