@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 from datetime import datetime
 from category_encoders import BinaryEncoder
-from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import LabelEncoder
 from sklearn.neighbors import LocalOutlierFactor
 from sklearn.preprocessing import StandardScaler
 
